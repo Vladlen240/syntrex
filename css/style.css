@@ -650,7 +650,7 @@ a, button, label[for] { cursor: pointer; } /* hand cursor on everything clickabl
   .footer__by { left: 20rem; top: 64.8rem; }
 
   /* ---------- Mobile menu (frame "Menu" 390x670) ---------- */
-  .mmenu { display: block; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100vh; height: 100svh; min-height: 50rem; background: #FF5D00; color: #010101; font: 400 1.4rem/1 "PP Neue Montreal", sans-serif; }
+  .mmenu { display: block; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100vh; height: 100lvh; min-height: 50rem; background: #FF5D00; color: #010101; font: 400 1.4rem/1 "PP Neue Montreal", sans-serif; }
   /* rides in from the right edge tilted 10deg and straightens up; leaves the same way */
   .mmenu { visibility: hidden; transform: translateX(130%) rotate(10deg); transform-origin: 0 0; transition: transform .8s var(--ease-soft), visibility 0s .8s; }
   .mmenu.is-open { visibility: visible; transform: none; transition: transform .8s var(--ease-soft); }
@@ -665,12 +665,15 @@ a, button, label[for] { cursor: pointer; } /* hand cursor on everything clickabl
   .mmenu__btn .btn__arrow { width: 6rem; background: var(--bg); }
   .mmenu__btn .btn__arrow svg { width: 1.6rem; fill: var(--black); }
   /* contacts stick to the bottom of the full-height menu (Figma distances from the 670 frame bottom) */
-  .mmenu__head { bottom: 8.2rem; color: rgba(1, 1, 1, .4); }
+  /* the orange runs the full screen height (100lvh, under Safari's bars); the contacts stay in the part
+     that is visible with the bars shown (100svh): --bars = the height the bars take */
+  .mmenu { --bars: calc(100lvh - 100svh); }
+  .mmenu__head { bottom: calc(8.2rem + var(--bars, 0px)); color: rgba(1, 1, 1, .4); }
   .mmenu__head--contact { left: 2rem; }
   .mmenu__head--office, .mmenu__addr { left: 20rem; }
-  .mmenu__phone { left: 2rem; bottom: 4.8rem; }
-  .mmenu__mail { left: 2rem; bottom: 2.4rem; }
-  .mmenu__addr { bottom: 2rem; }
+  .mmenu__phone { left: 2rem; bottom: calc(4.8rem + var(--bars, 0px)); }
+  .mmenu__mail { left: 2rem; bottom: calc(2.4rem + var(--bars, 0px)); }
+  .mmenu__addr { bottom: calc(2rem + var(--bars, 0px)); }
 
   .client--atlas .client__logo svg { width: 4.8rem !important; }
   .client--blue .client__logo svg { width: 3.7rem !important; }

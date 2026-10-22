@@ -281,8 +281,10 @@ document.querySelectorAll('[data-soon]').forEach((a) => a.addEventListener('clic
   const menu = document.getElementById('mmenu');
   const open = document.querySelector('.menu__toggle');
   if (!menu || !open) return;
+  const theme = document.querySelector('meta[name="theme-color"]'); // Safari's bars take this colour
   const set = (on) => {
     menu.classList.toggle('is-open', on);
+    if (theme) theme.content = on ? '#FF5D00' : '#FAFAFA';
     menu.setAttribute('aria-hidden', String(!on));
     document.documentElement.style.overflow = on ? 'hidden' : '';
     if (window.lenis) on ? lenis.stop() : lenis.start();
