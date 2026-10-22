@@ -233,6 +233,20 @@ img, svg { display: block; }
 }
 .quote__submit:disabled { cursor: default; }
 
+/* PC sizes (1024+): the block is exactly the screen height (100svh) on any screen. If the screen is
+   shorter than the 1920x1080 proportion, the vertical spacing and the field heights shrink in step
+   (Xrem on 1080 = X*0.926svh), so the form always fits and the message box doesn't get squashed alone */
+@media (min-width: 1024px) {
+  .quote { min-height: 0; }
+  .quote__form { padding-block: min(4rem, 3.7svh); }
+  .quote__title { margin-top: min(3rem, 2.78svh); }
+  .quote__fields { margin-top: min(9rem, 8.33svh); row-gap: min(3rem, 2.78svh); }
+  .field { gap: min(2rem, 1.85svh); }
+  .field__input:not(.field__input--area) { height: min(6rem, 5.56svh); }
+  .field__input--area { min-height: min(6rem, 5.56svh); }
+  .quote__submit { height: min(6rem, 5.56svh); margin-top: min(3rem, 2.78svh); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
