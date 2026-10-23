@@ -1,7 +1,7 @@
 // Block 07 — interactive dot globe (Three.js): particle continents, dark ocean with a light rim,
 // slow auto-spin, drag with inertia, Syntrex markers with glass cards (click a marker to open its card)
-import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
-import { feature } from 'https://unpkg.com/topojson-client@3.1.0/src/index.js';
+// three.js and topojson are fetched only when the block comes near the screen (see the end of the file)
+let THREE, feature;
 
 const HUBS = [ // only the markets named in Block 02: Europe, Asia and North America
   // North America
@@ -257,4 +257,19 @@ function stars() {
   new ResizeObserver(draw).observe(root);
 }
 
-if (root) { stars(); init().catch((e) => console.error('globe:', e)); }
+if (root) {
+  const io = new IntersectionObserver(async ([e]) => {
+    if (!e.isIntersecting) return;
+    io.disconnect();
+    stars();
+    try {
+      const [three, topo] = await Promise.all([
+        import('https://unpkg.com/three@0.160.0/build/three.module.min.js'),
+        import('https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/+esm'),
+      ]);
+      THREE = three; feature = topo.feature;
+      await init();
+    } catch (err) { console.error('globe:', err); }
+  }, { rootMargin: '100% 0px' });
+  io.observe(root);
+}

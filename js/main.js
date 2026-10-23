@@ -37,7 +37,8 @@
     const c = document.createElement('canvas');
     c.className = 'hero__cables';
     c.width = img.naturalWidth; c.height = 1;
-    c.getContext('2d').drawImage(img, 0, 100, c.width, 1, 0, 0, c.width, 1);
+    const row = Math.round(img.naturalHeight * 100 / 1080); // row 100 of 1080 (the phone image is smaller)
+    c.getContext('2d').drawImage(img, 0, row, c.width, 1, 0, 0, c.width, 1);
     img.before(c);
   };
   if (img.complete) addCables(); else img.addEventListener('load', addCables, { once: true });
@@ -161,6 +162,25 @@
 
 
 
+
+// Block 04 video: loaded only when the block comes near the screen (its own lighter file on phones)
+(() => {
+  const v = document.querySelector('.mission__video');
+  if (!v) return;
+  const mobile = matchMedia('(max-width: 1023px)');
+  const load = () => {
+    v.poster = mobile.matches ? v.dataset.posterMob : v.dataset.poster;
+    v.src = mobile.matches ? v.dataset.srcMob : v.dataset.src;
+    v.play().catch(() => {});
+  };
+  const io = new IntersectionObserver(([e]) => {
+    if (!e.isIntersecting) return;
+    io.disconnect();
+    load();
+    mobile.addEventListener('change', load); // window resized across the breakpoint: switch to the other cut
+  }, { rootMargin: '100% 0px' });
+  io.observe(v);
+})();
 
 // Block 04 stats: numbers count up from zero when the cards scroll into view
 (() => {

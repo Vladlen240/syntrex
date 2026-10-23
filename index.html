@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#FAFAFA">
   <title>Syntrex — International Freight Solutions</title>
-  <link rel="preload" href="assets/img/hero-container.png" as="image">
-  <link rel="stylesheet" href="css/style.css?v=117">
+  <meta name="description" content="Syntrex — international freight solutions: ocean, air and road freight, customs clearance and warehousing. Moving cargo quickly, safely and efficiently across global markets.">
+  <link rel="preload" href="assets/fonts/PPNeueMontreal-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Parabole.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/InterTight-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-5.78 0 70 70'%3E%3Cpath fill='%23FF5E00' fill-rule='evenodd' d='M14.61 41.01L41.54 57.14L41.54 47.87L7.73 27.62L7.73 24.87L7.73 12.87L0 17.5L0 32.26L14.61 41.01ZM12.31 50.62L36.95 65.37L29.23 70L0.08 52.54L7.8 47.91L12.31 50.62ZM21.49 4.63L29.21 0L58.37 17.46L50.64 22.09L21.48 4.63ZM16.9 22.13L16.9 12.86L58.45 37.75L58.45 52.51L50.71 57.14L50.71 42.38L31.51 30.88L16.9 22.13Z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css?v=118">
 </head>
 <body>
 
@@ -31,11 +35,12 @@
     <a class="mmenu__addr" href="https://www.google.com/maps/search/?api=1&amp;query=145+Harbor+Avenue,+Rotterdam+3011,+Netherlands" target="_blank" rel="noopener">145 Harbor Avenue,<br>Rotterdam 3011,<br>Netherlands</a>
   </div>
 
+  <main>
   <!-- Block 01 — Hero -->
   <section class="hero" id="top">
     <div class="hero__container" aria-hidden="true">
       <div class="hero__sway">
-        <img src="assets/img/hero-container.png" alt="">
+        <picture><source media="(max-width: 1023px)" srcset="assets/img/hero-container-m.webp"><img src="assets/img/hero-container.webp" srcset="assets/img/hero-container-m.webp 1280w, assets/img/hero-container.webp 1920w" sizes="min(100vw, 177.8svh)" alt="" width="1920" height="1080"></picture>
       </div>
     </div>
 
@@ -68,7 +73,7 @@
     </a>
 
     <a class="news-card" href="#news">
-      <span class="news-card__img"><img src="assets/img/news-freight.jpg" alt="Freight Outlook"></span>
+      <span class="news-card__img"><img src="assets/img/news-freight-s.webp" srcset="assets/img/news-freight-s160.webp 160w, assets/img/news-freight-s.webp 320w" sizes="(max-width: 1023px) 27vw, 9.1vw" alt="Freight Outlook" width="320" height="229"></span>
       <span class="news-card__label">News &amp; Insights</span>
       <svg class="news-card__arrow" viewBox="0 0 8.13 8.13"><path d="M0.88 8.13L0 7.25L6 1.25L0.63 1.25L0.63 0L8.13 0L8.13 7.5L6.88 7.5L6.88 2.13Z"/></svg>
       <span class="news-card__title">Freight Outlook</span>
@@ -125,31 +130,31 @@
         <span class="service__num">01</span>
         <h3 class="service__name">Ocean Freight</h3>
         <p class="service__text" style="width:36rem">Comprehensive container shipping solutions connecting major ports and <br>global trade routes. We manage every stage <br>of transportation to ensure cargo arrives safely, efficiently, and on schedule.</p>
-        <div class="service__img"><img src="assets/img/service-ocean.jpg" alt="Ocean Freight" loading="lazy"></div>
+        <div class="service__img"><picture><source media="(max-width: 767px)" srcset="assets/img/service-ocean-m.webp"><img src="assets/img/service-ocean.webp" srcset="assets/img/service-ocean-450.webp 450w, assets/img/service-ocean.webp 900w" sizes="(max-width: 1023px) 525px, 26.7vw" alt="Ocean Freight" loading="lazy"></picture></div>
       </article>
       <article class="service">
         <span class="service__num">02</span>
         <h3 class="service__name">Air Freight</h3>
         <p class="service__text" style="width:31rem">Fast and secure air transportation for urgent shipments requiring speed and precision. Ideal for high-value goods, critical deliveries, and time-sensitive supply chain operations.</p>
-        <div class="service__img"><picture><source media="(max-width: 767px)" srcset="assets/img/service-air-m.jpg"><img src="assets/img/service-air.jpg" alt="Air Freight" loading="lazy"></picture></div>
+        <div class="service__img"><picture><source media="(max-width: 767px)" srcset="assets/img/service-air-m.webp"><img src="assets/img/service-air.webp" srcset="assets/img/service-air-450.webp 450w, assets/img/service-air.webp 900w" sizes="(max-width: 1023px) 525px, 26.7vw" alt="Air Freight" loading="lazy"></picture></div>
       </article>
       <article class="service">
         <span class="service__num">03</span>
         <h3 class="service__name">Road Freight</h3>
         <p class="service__text" style="width:33rem">Reliable ground transportation connecting ports, warehouses, distribution centers, and final destinations. Flexible solutions tailored to regional and international logistics needs.</p>
-        <div class="service__img"><picture><source media="(max-width: 767px)" srcset="assets/img/service-road-m.jpg"><img src="assets/img/service-road.jpg" alt="Road Freight" loading="lazy"></picture></div>
+        <div class="service__img"><picture><source media="(max-width: 767px)" srcset="assets/img/service-road-m.webp"><img src="assets/img/service-road.webp" srcset="assets/img/service-road-450.webp 450w, assets/img/service-road.webp 900w" sizes="(max-width: 1023px) 525px, 26.7vw" alt="Road Freight" loading="lazy"></picture></div>
       </article>
       <article class="service service--customs">
         <span class="service__num">04</span>
         <h3 class="service__name">Customs Clearance</h3>
         <p class="service__text" style="width:36rem">Professional customs management ensuring smooth cross-border transportation. <br>Our specialists handle documentation, compliance requirements, and customs procedures to minimize delays.</p>
-        <div class="service__img"><img src="assets/img/service-customs.jpg" alt="Customs Clearance" loading="lazy"></div>
+        <div class="service__img"><img src="assets/img/service-customs.webp" srcset="assets/img/service-customs-450.webp 450w, assets/img/service-customs.webp 900w" sizes="(max-width: 1023px) 525px, 26.7vw" alt="Customs Clearance" loading="lazy"></div>
       </article>
       <article class="service">
         <span class="service__num"><span class="pc">05</span><span class="mob">04</span></span>
         <h3 class="service__name">Warehousing</h3>
         <p class="service__text" style="width:31rem">Secure storage and inventory solutions designed to support modern supply chains. From short-term warehousing to distribution and fulfillment, we help keep operations running efficiently.</p>
-        <div class="service__img"><picture><source media="(max-width: 767px)" srcset="assets/img/service-warehousing-m.jpg"><img src="assets/img/service-warehousing.jpg" alt="Warehousing" loading="lazy"></picture></div>
+        <div class="service__img"><picture><source media="(max-width: 767px)" srcset="assets/img/service-warehousing-m.webp"><img src="assets/img/service-warehousing.webp" srcset="assets/img/service-warehousing-450.webp 450w, assets/img/service-warehousing.webp 900w" sizes="(max-width: 1023px) 525px, 26.7vw" alt="Warehousing" loading="lazy"></picture></div>
       </article>
       <div class="services__hold" aria-hidden="true"></div>
     </div>
@@ -157,7 +162,7 @@
 
   <!-- Block 04 — Mission & stats -->
   <section class="mission" id="why-us">
-    <video class="mission__video" src="assets/video/mission.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+    <video class="mission__video" data-src="assets/video/mission-pc.mp4" data-src-mob="assets/video/mission-m.mp4" data-poster="assets/img/mission-poster.webp" data-poster-mob="assets/img/mission-poster-m.webp" muted loop playsinline preload="none" aria-hidden="true"></video>
     <p class="mission__text"><i class="acc">W</i>e help businesses transport cargo across international markets through reliable freight solutions, strategic routing, and transparent operations.</p>
 
     <a class="btn btn--light mission__btn" href="#quote">
@@ -264,31 +269,33 @@
     <h2 class="section-title"><i class="acc">N</i>ews &amp; Insights</h2>
     <div class="news__cards">
       <a class="post" href="#quote">
-        <span class="post__img"><img src="assets/img/news-freight.jpg" alt="Freight Outlook" loading="lazy"></span>
+        <span class="post__img"><img src="assets/img/news-freight.webp" srcset="assets/img/news-freight-450.webp 450w, assets/img/news-freight.webp 860w" sizes="(max-width: 767px) 90vw, (max-width: 1023px) 525px, 26.7vw" alt="Freight Outlook" loading="lazy"></span>
         <span class="post__time">6 min. read</span>
         <h3 class="post__title">Freight Outlook</h3>
         <p class="post__text">Key developments shaping international cargo transportation and supply chain performance.</p>
       </a>
       <a class="post" href="#quote">
-        <span class="post__img"><img src="assets/img/news-supply.jpg" alt="Supply Chains" loading="lazy"></span>
+        <span class="post__img"><img src="assets/img/news-supply.webp" srcset="assets/img/news-supply-450.webp 450w, assets/img/news-supply.webp 860w" sizes="(max-width: 767px) 90vw, (max-width: 1023px) 525px, 26.7vw" alt="Supply Chains" loading="lazy"></span>
         <span class="post__time">3 min. read</span>
         <h3 class="post__title">Supply Chains</h3>
         <p class="post__text">Strategies helping businesses improve efficiency and maintain reliable freight operations.</p>
       </a>
       <a class="post" href="#quote">
-        <span class="post__img"><img src="assets/img/news-innovation.jpg" alt="Logistics Innovation" loading="lazy"></span>
+        <span class="post__img"><img src="assets/img/news-innovation.webp" srcset="assets/img/news-innovation-450.webp 450w, assets/img/news-innovation.webp 860w" sizes="(max-width: 767px) 90vw, (max-width: 1023px) 525px, 26.7vw" alt="Logistics Innovation" loading="lazy"></span>
         <span class="post__time">8 min. read</span>
         <h3 class="post__title">Logistics Innovation</h3>
         <p class="post__text">How technology is transforming visibility, coordination, and cargo movement worldwide.</p>
       </a>
       <a class="post" href="#quote">
-        <span class="post__img"><img src="assets/img/news-trade.jpg" alt="Global Trade" loading="lazy"></span>
+        <span class="post__img"><img src="assets/img/news-trade.webp" srcset="assets/img/news-trade-450.webp 450w, assets/img/news-trade.webp 860w" sizes="(max-width: 767px) 90vw, (max-width: 1023px) 525px, 26.7vw" alt="Global Trade" loading="lazy"></span>
         <span class="post__time">4 min. read</span>
         <h3 class="post__title">Global Trade</h3>
         <p class="post__text">Tracking changes across shipping<br>routes and global markets.</p>
       </a>
     </div>
   </section>
+
+  </main>
 
   <!-- Block 09 — Footer -->
   <footer class="footer">
@@ -329,8 +336,8 @@
     <a class="footer__link footer__by" href="#" data-soon><span class="pc">Website</span><span class="mob">Made</span> by Vladlen Bordiuhov</a>
   </footer>
 
-  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="js/main.js?v=78"></script>
-  <script type="module" src="js/globe.js?v=24"></script>
+  <script src="js/lenis.min.js" defer></script>
+  <script src="js/main.js?v=80" defer></script>
+  <script type="module" src="js/globe.js?v=25"></script>
 </body>
 </html>
