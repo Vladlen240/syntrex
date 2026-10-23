@@ -33,15 +33,24 @@
   // is stretched upward above the image, so the container drops on longer cables, not detached ones
   const img = box.querySelector('img');
   const rem = () => parseFloat(getComputedStyle(document.documentElement).fontSize);
+  // the row is read from a plain copy of the current file (its real pixels, whatever the screen picked)
+  // and kept as a picture, not a live canvas: a canvas can be wiped by the browser after a while
+  const cables = document.createElement('div');
+  cables.className = 'hero__cables';
+  (img.closest('picture') || img).before(cables);
   const addCables = () => {
-    const c = document.createElement('canvas');
-    c.className = 'hero__cables';
-    c.width = img.naturalWidth; c.height = 1;
-    const row = Math.round(img.naturalHeight * 100 / 1080); // row 100 of 1080 (the phone image is smaller)
-    c.getContext('2d').drawImage(img, 0, row, c.width, 1, 0, 0, c.width, 1);
-    img.before(c);
+    const src = new Image();
+    src.onload = () => {
+      const c = document.createElement('canvas');
+      c.width = src.naturalWidth; c.height = 1;
+      const row = Math.round(src.naturalHeight * 100 / 1080); // row 100 of 1080 (the phone image is smaller)
+      c.getContext('2d').drawImage(src, 0, row, c.width, 1, 0, 0, c.width, 1);
+      cables.style.backgroundImage = `url(${c.toDataURL()})`;
+    };
+    src.src = img.currentSrc || img.src;
   };
-  if (img.complete) addCables(); else img.addEventListener('load', addCables, { once: true });
+  if (img.complete && img.naturalWidth) addCables();
+  img.addEventListener('load', addCables); // again when the phone / PC file is swapped on resize
   const mobile = matchMedia('(max-width: 1023px)'); // on phones the container only drops in, no scroll ride
   const update = () => {
     if (mobile.matches) { box.style.translate = ''; box.classList.remove('is-gone'); return; }

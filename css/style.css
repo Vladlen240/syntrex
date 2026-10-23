@@ -79,10 +79,10 @@ img, svg { display: block; }
   position: relative;
 }
 /* the PNG's own cable part (top 20%, rows 0-215 of 1080) is cut off and replaced by one continuous
-   cable from the top of the screen down to the pulley (canvas from main.js), so there is no seam */
+   cable from the top of the screen down to the pulley (one pixel row of the PNG, stretched, from main.js), so there is no seam */
 .hero__sway picture { display: contents; }
 .hero__sway img { width: 100%; height: 100%; clip-path: inset(20% 0 0 0); }
-.hero__cables { position: absolute; left: 0; bottom: 75%; width: 100%; height: 300vh; } /* runs 5% into the pulley, under the PNG: no gap at the joint while moving */
+.hero__cables { position: absolute; left: 0; bottom: 75%; width: 100%; height: 300vh; background: 0 0 / 100% 100% no-repeat; } /* runs 5% into the pulley, under the PNG: no gap at the joint while moving */
 /* only cables left above Block 02: the whole picture fades out quickly (and back on scroll up) */
 .hero__sway { transition: opacity .5s var(--ease-soft); }
 .hero__container.is-gone .hero__sway { opacity: 0; }
@@ -278,11 +278,9 @@ img, svg { display: block; }
 }
 .slider-nav__btn svg { width: 1.667rem; fill: var(--black); transition: fill var(--hover) var(--ease-soft); }
 .slider-nav__btn--prev svg { transform: scaleX(-1); }
-.slider-nav__btn--next { background: var(--orange); border-color: var(--orange); }
-.slider-nav__btn--next svg { fill: var(--bg); }
-.slider-nav__btn--prev:hover { background: var(--orange); border-color: var(--orange); }
-.slider-nav__btn--prev:hover svg { fill: var(--bg); }
-.slider-nav__btn--next:hover { background: var(--black); border-color: var(--black); }
+/* both arrows are outlined; on hover the box fills orange with a light arrow */
+.slider-nav__btn:hover { background: var(--orange); border-color: var(--orange); }
+.slider-nav__btn:hover svg { fill: var(--bg); }
 
 .clients { position: absolute; left: 0; top: 54.8rem; width: 184rem; overflow: hidden; }
 .clients__track { display: flex; gap: 2rem; }
